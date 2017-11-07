@@ -1,8 +1,8 @@
 # Harbor upgrade and database migration guide
 
-When upgrading your existing Habor instance to a newer version, you may need to migrate the data in your database. Refer to [change log](../tools/migration/changelog.md) to find out whether there is any change in the database. If there is, you should go through the database migration process. Since the migration may alter the database schema, you should **always** back up your data before any migration.
+When upgrading your existing Habor instance to a newer version, you may need to migrate the data in your database. Refer to [change log](../tools/migration/changelog.md) to find out whether there is any change in the database. If yes, you should go through the database migration process. Since the migration may alter the database schema, you should **always** back up your data before any migration.
 
-*If your install Harbor for the first time, or the database version is the same as that of the lastest version, you do not need any database migration.*
+*If you install Harbor for the first time, or the database version is the same as that of the lastest version, you do not need any database migration.*
 
 **NOTE:** 
 - From v1.2 on, you need to use the release version as the tag of the migrator image. 'latest' is no longer used for new release.
@@ -49,11 +49,10 @@ When upgrading your existing Habor instance to a newer version, you may need to 
 
   - Configure Harbor by modifying the file `harbor.cfg`,
 you may need to refer to the configuration files you've backed up during step 2.
-Refer to [Installation & Configuration Guide ](../docs/installation_guide.md) for more information.
+Refer to [Installation & Configuration Guide](../docs/installation_guide.md) for more information.
 Since the content and format of `harbor.cfg` may have been changed in the new release, **DO NOT directly copy `harbor.cfg` from previous version of Harbor.**
 
-	**IMPORTANT:** If you are upgrading a Harbor instance with LDAP/AD authentication,
-you must make sure **auth_mode** is set to **ldap_auth** in `harbor.cfg` before launching the new version of Harbor. Otherwise, users may not be able to log in after the upgrade.
+	**IMPORTANT:** If you are upgrading a Harbor instance with LDAP/AD authentication, make sure **auth_mode** is set to **ldap_auth** in `harbor.cfg` before launching the new version of Harbor. Otherwise, users may not be able to log in after the upgrade.
 
   - To assist you in migrating the `harbor.cfg` file from v0.5.0 to v1.1.x, a script is provided and described as below. For other versions of Harbor, you need to manually migrate the file `harbor.cfg`.
 
